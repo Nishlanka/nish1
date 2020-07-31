@@ -1,0 +1,29 @@
+
+
+MenuBar.Command command_Per_Det;
+MenuItem menuitem__SPY_HR;
+
+	command_Per_Det=new Command() {
+			public void menuSelected(MenuItem selectedItem) {
+				Window mtr_chatX = new Window("HR Enter Personal Details (" + user + ")" + user_full_name);
+				HR_Emp_Personal_Details_Sub sc =new HR_Emp_Personal_Details_Sub();
+				
+				 sc.getUser12(epf,branch,level,user_full_name,br_code);
+			//	sc.getUser12(epf,level,user_full_name);
+				mtr_chatX.setContent(sc);
+				//mtr_chatX.setWidth("800px");
+				//mtr_chatX.setHeight("850px");
+
+				mtr_chatX.center();
+				mtr_chatX.setModal(true);
+				mtr_chatX.setResizable(false);
+				UI.getCurrent().addWindow(mtr_chatX);
+			}
+		};
+		
+
+
+
+menuitem__SPY_HR=menuitem__HR.addItem("Other", null);
+		menuitem__HR_Phone=menuitem__SPY_HR.addItem("Update Phone No", command_HR_PH_UPTE);
+		menuitem__HR_Personal=menuitem__SPY_HR.addItem("Personal Details", command_Per_Det);
